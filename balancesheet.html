@@ -1,0 +1,199 @@
+<html>
+<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<style>
+table, td, th {
+  border: 4px solid black;
+}
+
+table {border-collapse:collapse;
+  width: 100;
+}
+th, td {
+  text-align: center;
+  padding: 8px;
+ 
+}
+
+th {
+  height: 5px;
+}
+th {
+  background-color: grey;
+  color: white;
+}
+tr:hover {background-color:rgba(255, 99, 71, 0.2);}
+
+</style>
+<style>
+#outer { text-align: left; }
+#inner { width:100px; text-align: center; margin: 0 auto; }
+.t { float: left; width:240px; border: 0px solid black;}
+</style>
+
+
+</head>
+<body style="background:url(https://www.allbusiness.com/asset/2018/11/business-accounting-and-finance-concept.jpg)">
+
+
+
+
+<center>
+</br>
+</br>
+<h1 style="background-color:; font-family:verdana;color:rgba(25, 24, 25);">BALANCE SHEET</h1>
+</br>
+</br>
+
+
+
+<table id="myTable" bgcolor="white" align="center"
+      style='font-family:"Verdana",Courier,monospace;font-size:120%';>
+<tr>  
+       <th>LIABILITIES </th>
+       <th>AMOUNT</th>
+       <th width="200">ASSETS </th>
+       <th>AMOUNT</th>
+       
+       
+</tr>
+    
+<tr>
+    <td>NET PROFIT<input type="text" name="num1" id="num1" /></td>
+    <td> </td>
+    <td>LAND AND BUILDING</td>
+    <td><input type="text" id="rom1" /></td>
+    
+   
+</tr>
+<tr>
+    <td>NET LOSS<input type="text" name="num1" id="num2" /></td>
+    <td> </td>
+    <td>EQUIPMENT</td>
+    <td><input type="text" id="rom2" /></td>
+   
+</tr>    
+<tr>
+    <td>DRAWINGS<input type="text" name="num1" id="num10" /></td>
+    <td> </td>
+    <td>PLANT & MACHINERY<input type="text" name="num1" id="num3" /></td>
+    <td>  </td>
+   
+</tr>    
+<tr> 
+    <td>CAPITAL </td>
+    <td><input type="text"  id="subt" /></td>
+    <td>(-)DEP<input type="text" name="num2" id="num4" /></td>
+    <td>  </td>
+   
+    
+</tr>    
+
+<tr>
+    <td>CREDITORS</td>
+    <td><input type="text" id="col3" /></td>
+    <td> </td>
+    <td><input type="text" id="void" /></td>
+  
+</tr>  
+<tr>
+    <td>BILLS PAYABLE</td>
+    <td><input type="text" id="col4" /></td>
+    <td>DEBTOR<input type="text" name="num1" id="num5" /></td>
+    <td>  </td>
+   
+</tr>
+<tr>
+    <td>BANK LOANS</td>
+    <td><input type="text" id="col5" /></td>
+    <td>(-)DEBT<input type="text" name="num2" id="num6" /></td>
+    <td>  </td>
+   
+</tr>
+<tr>
+    <td>O/S WAGES<input type="text" name="num1" id="num7" /></td>
+    <td> </td>
+    <td> </td>
+    <td><input type="text" id="int" /></td>
+   
+</tr>
+<tr>
+    <td>O/S SALARIES<input type="text" name="num1" id="num8" /></td>
+    <td> </td>
+    <td>PROVISIONS</td>
+    <td><input type="text" id="rom3" /></td>
+   
+   
+</tr>    
+<tr> 
+    <td>OUTSTANDING EXPENSES</td>
+    <td><input type="text"  id="long" /></td>
+    <td>BY CLOSING STOCK</td>
+    <td><input type="text" id="rom4" /></td>
+    
+</tr> 
+<tr> 
+    <td><span>TOTAL</span></td>
+    <td><input type="text" class='txtCal' id="sum" /></td>
+    <td><span>TOTAL</span></td>
+    <td><input type="text" class='txtCal' id="null" /></td>
+    
+    
+</tr> 
+</table>
+ 
+<script>
+
+$(function() {
+    $("#num1, #num2, #num10").on("keydown keyup", sum);
+	function sum() {
+	
+	$("#subt").val(Number($("#num1").val()) - Number($("#num2").val())- Number($("#num10").val()));
+	}
+});
+$(function() {
+    $("#num3, #num4").on("keydown keyup", sum);
+	function sum() {
+	
+	$("#void").val(Number($("#num3").val()) - Number($("#num4").val()));
+	}
+});
+$(function() {
+    $("#num5, #num6").on("keydown keyup", sum);
+	function sum() {
+	
+	$("#int").val(Number($("#num5").val()) - Number($("#num6").val()));
+	}
+});
+$(function() {
+    $("#num7, #num8").on("keydown keyup", sum);
+	function sum() {
+	$("#long").val(Number($("#num7").val()) + Number($("#num8").val()));
+	
+	}
+});
+
+$(function() {
+    $("#col3, #subt , #col4, #col5, #long").on("keydown keyup", sum);
+	function sum() {
+	$("#sum").val(Number($("#col3").val())+ Number($("#subt").val())+ Number($("#col4").val())+ Number($("#col5").val())+ Number($("#long").val()));
+	
+	}
+});
+$(function() {
+    $("#rom1, #rom2, #rom3, #void , #rom4, #int").on("keydown keyup", sum);
+	function sum() {
+	$("#null").val(Number($("#rom1").val()) + Number($("#rom2").val())+ Number($("#rom3").val())+ Number($("#void").val())+ Number($("#rom4").val())+ Number($("#int").val()));
+	
+	}
+});
+
+
+</script></br>
+<a href="profitloss.html">
+<button><b>CLICK FOR P/L ACCOUNTS</b></button>
+<a href="home.html">
+<button><b>HOME</b></button>
+
+</center>
+</body>
+</html>
